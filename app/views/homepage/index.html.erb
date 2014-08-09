@@ -1,8 +1,17 @@
-<h1>Count Number of Page</h1>
-<p>To number a book from 1 to its last page took <%= @problem.total_digit %> digits. How many pages are there in the book?</p>
-<%= form_tag solution_path, id: "submit-answer", remote:true do %>
-  <%= label_tag :solution %>:
-  <%= text_field_tag :solution %>
-  <%= submit_tag 'Submit Solution' %>
+<div class="inner cover">
+<h1 class="cover-heading">Count Number of Page</h1>
+<p class="lead">To number a book from 1 to its last page took <%= @problem.total_digit %> digits. How many pages are there in the book?</p>
+<p><em>hint: Book with 9 pages took 9 digits, and Book with 10 pages took 11 digits</em></p>
+<%= form_tag solution_path, class: "form-horizontal", id: "submit-answer", remote:true do %>
+  <div class="form-group">
+    <%= label_tag :solution, 'Solution:', class: 'col-sm-offset-3 col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= text_field_tag :solution, params[:solution], class: 'form-control' %>
+    </div>
+  </div>
+  <p class="lead">
+    <%= submit_tag 'Submit Solution', class: 'btn btn-lg btn-default' %>
+  </p>
   <span id="result"></span>
 <% end %>
+</div>

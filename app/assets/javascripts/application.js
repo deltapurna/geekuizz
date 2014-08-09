@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -18,6 +19,15 @@
 
 $(function(){
   $('#submit-answer').on('ajax:complete', function(event, xhr, status) {
-    $('#result').html(xhr.responseText);
+    result_node = $('#result');
+    result = xhr.responseText;
+    result_node.html(result);
+    if(result == 'Correct!') {
+      result_node.removeClass('wrong');
+      result_node.addClass('correct');
+    } else {
+      result_node.removeClass('correct');
+      result_node.addClass('wrong');
+    }
   });
 })
