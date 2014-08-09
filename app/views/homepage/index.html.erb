@@ -1,0 +1,8 @@
+<h1>Count Number of Page</h1>
+<p>To number a book from 1 to its last page took <%= @problem.total_digit %> digits. How many pages are there in the book?</p>
+<%= form_tag solution_path, id: "submit-answer", remote:true do %>
+  <%= label_tag :solution %>:
+  <%= text_field_tag :solution %>
+  <%= submit_tag 'Submit Solution' %>
+  <span id="result"></span>
+<% end %>
