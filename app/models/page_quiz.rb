@@ -3,7 +3,7 @@ class PageQuiz
 
   attr_accessor :total_digit
 
-  def self.create_problem(range = 300..500)
+  def self.create_problem(range = 20..500)
     new(total_digit: rand(range))
   end
 
